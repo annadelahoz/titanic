@@ -6,12 +6,12 @@ from sklearn.metrics import accuracy_score, classification_report
 def cargar_y_limpiar_datos():
     df = pd.read_csv('train.csv')
     
-    # Rellenar valores nulos de todas las columnas
+
     df['Age'].fillna(df['Age'].median(), inplace=True)
     df['Fare'].fillna(df['Fare'].median(), inplace=True)
     df['Embarked'].fillna(df['Embarked'].mode()[0], inplace=True)
     
-    # Convertir variables categóricas a numéricas
+
     df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
     df = pd.get_dummies(df, columns=['Embarked'], drop_first=True)
     
@@ -21,7 +21,7 @@ def cargar_y_limpiar_datos():
     return X, y
 
 def entrenar_modelo(X, y):
-    print("--- ENTRENANDO MODELO DE MACHINE LEARNING ---")
+    print("ENTRENANDO MODELO DE MACHINE LEARNING")
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
     modelo = LogisticRegression(max_iter=500)
