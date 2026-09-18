@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def cargar_y_explorar():
-    df = pd.read_csv('train.csv')
+    df = pd.read_csv('data/train.csv')
     
     print("1. exploracion inicial de los datos (eda)")
     
@@ -88,7 +88,7 @@ def generar_visualizaciones(df):
     plt.xlabel('sexo')
     plt.xticks(rotation=0)
     plt.tight_layout()
-    plt.savefig('supervivencia_sexo.png')
+    plt.savefig('outputs/resultados/supervivencia_sexo.png')
     plt.close()
     
     plt.figure(figsize=(6, 4))
@@ -98,7 +98,7 @@ def generar_visualizaciones(df):
     plt.xlabel('clase (1ª, 2ª, 3ª)')
     plt.xticks(rotation=0)
     plt.tight_layout()
-    plt.savefig('supervivencia_clase.png')
+    plt.savefig('outputs/resultados/supervivencia_clase.png')
     plt.close()
 
     plt.figure(figsize=(6, 4))
@@ -108,13 +108,13 @@ def generar_visualizaciones(df):
     plt.ylabel('tarifa pagada ($)')
     plt.xlabel('sobrevivio (0 = no, 1 = si)')
     plt.tight_layout()
-    plt.savefig('tarifa_vs_supervivencia.png')
+    plt.savefig('outputs/resultados/tarifa_vs_supervivencia.png')
     plt.close()
 
-    print("graficas guardadas correctamente como:")
-    print(" - 'supervivencia_sexo.png'")
-    print(" - 'supervivencia_clase.png'")
-    print(" - 'tarifa_vs_supervivencia.png'")
+    print("graficas guardadas correctamente en 'outputs/resultados/':")
+    print(" - 'outputs/resultados/supervivencia_sexo.png'")
+    print(" - 'outputs/resultados/supervivencia_clase.png'")
+    print(" - 'outputs/resultados/tarifa_vs_supervivencia.png'")
 
 def imprimir_conclusiones():
     print("\n5. conclusiones del analisis")
