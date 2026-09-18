@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 def cargar_y_explorar():
     df = pd.read_csv('train.csv')
     
+<<<<<<< HEAD
     print("1. EXPLORACIÓN INICIAL DE LOS DATOS")
     print(f"Número de pasajeros (filas): {df.shape[0]}")
     print(f"Número de columnas: {df.shape[1]}")
@@ -13,6 +14,16 @@ def cargar_y_explorar():
     
     print("\nValores faltantes por columna:")
     print(df.isnull().sum())
+=======
+
+    df['Age'].fillna(df['Age'].median(), inplace=True)
+    df['Fare'].fillna(df['Fare'].median(), inplace=True)
+    df['Embarked'].fillna(df['Embarked'].mode()[0], inplace=True)
+    
+
+    df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
+    df = pd.get_dummies(df, columns=['Embarked'], drop_first=True)
+>>>>>>> df18c3474bc95c9e300d8435a3f7ea137fa32a6a
     
     print(f"\nRegistros duplicados: {df.duplicated().sum()}")
     
@@ -21,8 +32,14 @@ def cargar_y_explorar():
     
     return df
 
+<<<<<<< HEAD
 def tratar_faltantes_y_transformar(df):
     print("\n2. TRATAMIENTO DE FALTANTES Y TRANSFORMACIONES")
+=======
+def entrenar_modelo(X, y):
+    print("ENTRENANDO MODELO DE MACHINE LEARNING")
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+>>>>>>> df18c3474bc95c9e300d8435a3f7ea137fa32a6a
     
     
     df['Age'] = df['Age'].fillna(df['Age'].median())
@@ -103,8 +120,13 @@ def imprimir_conclusiones():
     print("3. La prioridad de rescate favoreció a los niños frente a otros grupos de edad adultas.")
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     df = cargar_y_explorar()
     df = tratar_faltantes_y_transformar(df)
     realizar_analisis(df)
     generar_visualizaciones(df)
     imprimir_conclusiones()
+=======
+    X, y = cargar_y_limpiar_datos()
+    entrenar_modelo(X, y)
+>>>>>>> df18c3474bc95c9e300d8435a3f7ea137fa32a6a
