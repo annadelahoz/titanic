@@ -10,4 +10,3 @@ Este proyecto analiza el dataset del Titanic para predecir la supervivencia de l
    .\venv\Scripts\Activate
    pip install -r requirements.txt
    python main.py
-   
